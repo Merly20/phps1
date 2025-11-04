@@ -1,18 +1,17 @@
 <?php
 $con = mysqli_connect("localhost", "root", "", "student");
 if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
+    echo "not connected";
 }
 
-// Fetch all roll numbers for dropdown
 $roll_query = "SELECT `ROLL NO` FROM form";
 $roll_result = mysqli_query($con, $roll_query);
 ?>
 
 <form action="" method="post">
-    <label for="roll">Roll No:</label>
+    Roll No:
     <select name="roll" id="roll" required>
-        <option value="">--Select Roll No--</option>
+        <!-- <option value="">--Select Roll No--</option> -->
         <?php
         while ($row = mysqli_fetch_assoc($roll_result)) {
             echo '<option value="' . $row['ROLL NO'] . '">' . $row['ROLL NO'] . '</option>';
